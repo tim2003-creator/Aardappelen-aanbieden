@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Aardappelen Aanbieden</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        .form-container {
+            background: #fff;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
+            margin: 0;
+            color: #333;
+            font-size: 1.8em;
+            font-weight: normal;
+            position: relative;
+            display: inline-block;
+        }
+
+        .form-header h1::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 4px;
+            background: #4CAF50; 
+            margin: 10px auto 0 auto;
+        }
+
+        .form-description {
+            text-align: center;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            background: #fafafa;
+            box-sizing: border-box;
+            font-size: 0.95em;
+            color: #333;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background: #4CAF50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 2px;
+        }
+
+        input[type="submit"]:hover {
+            background: #43a047;
+        }
+
+        .optional {
+            font-weight: normal;
+            font-style: italic;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+
+        .fieldset {
+            margin-bottom: 30px;
+            border: none;
+            padding: 0;
+        }
+
+        .fieldset legend {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option label {
+            font-weight: normal;
+            margin-left: 5px;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="form-header">
+        <h1>Aardappelen Aanbieden</h1>
+    </div>
+    <div class="form-description">
+        Vul onderstaand formulier in om uw aardappelen aan te bieden. Geen enkel veld is verplicht.
+        Bij het verzenden zal uw e-mailprogramma geopend worden om de gegevens te versturen.
+    </div>
+
+    <form action="mailto:avugt@xs4all.nl?subject=Nieuwe%20Aardappel%20Aanbieding" method="post" enctype="multipart/form-data">
+        <fieldset class="fieldset">
+            <legend>Productinformatie</legend>
+
+            <label for="soort-ras">Soort / Ras <span class="optional">(optioneel)</span></label>
+            <input type="text" id="soort-ras" name="soort_ras" placeholder="Bijv. Bintje">
+
+            <label for="hoeveelheid">Hoeveelheid (in ton) <span class="optional">(optioneel)</span></label>
+            <input type="number" id="hoeveelheid" name="hoeveelheid" placeholder="Bijv. 10">
+            <div class="info">Vul het geschatte totaal in ton in.</div>
+
+            <label>Losgestort of in de kist? <span class="optional">(optioneel)</span></label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="losgestort" name="aanlevering" value="Losgestort">
+                    <label for="losgestort">Losgestort</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="kist" name="aanlevering" value="In de kist">
+                    <label for="kist">In de kist</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend>Locatie & Beschrijving</legend>
+
+            <label for="locatie">Locatie <span class="optional">(optioneel)</span></label>
+            <input type="text" id="locatie" name="locatie" placeholder="Bijv. Goeree-Overflakkee">
+            <div class="info">Waar bevinden de aardappelen zich?</div>
+
+            <label for="omschrijving">Korte omschrijving <span class="optional">(optioneel)</span></label>
+            <textarea id="omschrijving" name="omschrijving" rows="4" placeholder="Geef een korte omschrijving van de partij aardappelen..."></textarea>
+
+            <label for="richtprijs">Richtprijs <span class="optional">(optioneel)</span></label>
+            <input type="text" id="richtprijs" name="richtprijs" placeholder="Bijv. €0,20 per kg">
+            <div class="info">Geef een indicatie van de prijs waar u aan denkt.</div>
+
+            <label for="afbeelding">Afbeelding <span class="optional">(optioneel)</span></label>
+            <input type="file" id="afbeelding" name="afbeelding" accept="image/*">
+            <div class="info">Upload een duidelijke foto van uw aardappelen (max. 5MB).</div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend>Contactgegevens</legend>
+
+            <label for="naam">Naam <span class="optional">(optioneel)</span></label>
+            <input type="text" id="naam" name="naam" placeholder="Uw naam of bedrijfsnaam">
+
+            <label for="email">E-mailadres <span class="optional">(optioneel)</span></label>
+            <input type="text" id="email" name="email" placeholder="Uw e-mailadres voor eventuele reactie">
+
+            <label for="telefoon">Telefoonnummer <span class="optional">(optioneel)</span></label>
+            <input type="text" id="telefoon" name="telefoon" placeholder="Bijv. 06-12345678">
+            <div class="info">Indien u telefonisch benaderd wenst te worden.</div>
+        </fieldset>
+
+        <input type="submit" value="Verstuur Aanbieding">
+    </form>
+</div>
+
+</body>
+</html>
